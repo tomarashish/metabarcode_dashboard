@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<head>
+
+  <meta charset="utf-8">
+  <!-- http://t.co/dKP3o1e -->
+  <meta http-equiv="X-UA-Compatibile" content="IE-edge, chrome=1/">
+
+  <!-- Title -->
+  <title>DoPlanning Dashboard</title>
+
+  <!-- Loading dependencies -->
+  <script src="./assets/jquery.js"></script>
+  <script src="./assets/bootstrap.min.js"></script>
+  <script src="./assets/d3.v3.min.js"></script>
+  <script src="./lib/core/taxonBar.js"></script>
+  <script src="./lib/core/donutChart.js"></script>
+  <script src="./lib/core/taxonomyBar.js">
+
+
+  </script>
+  <script src="./lib/core/init_taxonBar.js">
+
+
+  </script>
+
+  <!-- Loading stylesheet -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <a id="return-to-top"><i class="icon-chevron-up"></i></a>
+  <!-- header -->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+        <a class="navbar-brand" href="index.html">General Visualization</a>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="start-button" href="../example/start.html">Getting Started</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../example/treemap.html">Examples</a></li>
+          <li class="active"><a href="../example/dashboard.html">Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Currently under development....</p>
+      <a href="https://github.com/biographika/sunburst-viz" target="_blank"><i class="icon-github icon-large"></i>&nbsp;&nbsp;Github</a>
+    </div>
+  </footer>
+
+
+  <div class="container-fluid">
+
+    <!--div class="row">
+            <div class="col-md-12">
+             <div class="chart-wrapper"> 
+                <div class="chart-title">Overall Taxon-wise Abundance &nbsp;&nbsp; Overall Taxon-wise Abundance</div>
+            </div>
+        </div>
+        </div-->
+
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="chart-wrapper">
+          <!--div class="chart-title">Phylum</div-->
+          <div id="phylumDonut" class="chart-area"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="chart-wrapper">
+          <!--div class="chart-title">Class</div-->
+          <div id="phylumStack" class="chart-area"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="chart-wrapper">
+          <div id="classDonut" class="chart-area"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="chart-wrapper">
+          <div id="classStack" class="chart-area"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="chart-wrapper">
+          <div id="orderDonut" class="chart-area"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="chart-wrapper">
+          <div id="orderStack" class="chart-area"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="chart-wrapper">
+          <div id="genusDonut" class="chart-area"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="chart-wrapper">
+          <div id="genusStack" class="chart-area"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="chart-wrapper">
+          <div id="speciesDonut" class="chart-area"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="chart-wrapper">
+          <div id="speciesStack" class="chart-area"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>

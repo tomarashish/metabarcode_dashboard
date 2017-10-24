@@ -1,0 +1,148 @@
+
+.axis path,
+	.axis line{
+		fill: none;
+        stroke:black;
+		shape-rendering: crispEdges;
+        stroke-opacity: .7;
+		stroke-width: 1;
+}
+
+.axis2 path,
+.axis2 line
+{
+           fill: none;
+            stroke:black;
+		shape-rendering: crispEdges;
+		stroke-width: 1;
+            stroke-opacity: .8;
+}
+
+.brush .extent {
+  stroke: black;
+  fill-opacity: .3;
+  shape-rendering: crispEdges;
+}
+
+body{
+    margin-bottom: 70px;
+    margin-top: 60px;
+    background-color: #f0f0f0;
+    font-family: FontAwesome;
+}
+
+/*.col-md-9, .col-lg-9, .col-sm-9{
+    background-color: #fff;
+    margin: 0 10px 10px 0;
+     -webkit-box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+    box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+}
+
+
+.container-fluid{
+    border: 1px solid rgba(54, 64, 74, 0.08);
+    margin-bottom: 20px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    background-clip: padding-box;
+    background-color: #fff;
+}
+
+.container-fluid {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
+*/
+.dot {
+  stroke: #fff;
+  fill: #FF4330;
+  stroke-width: 1.5px;
+  clip-path: url(#clip);
+}
+
+.footer{
+    position: absolute;
+    height: 60px;
+    text-align: center;
+}
+
+.link {
+   fill: none;
+   stroke: #ccc;
+   stroke-width: 1.5px;
+}
+
+.legend {
+    font-family: FontAwesome;
+    font-size: 13px;
+    font-weight: bold;
+    text-anchor: left;
+}
+
+/*.y-axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+    stroke-opacity: .5;
+}
+*/
+
+.node {
+   cursor: pointer;
+ }
+
+ .node circle {
+   fill: #fff;
+   stroke: steelblue;
+   stroke-width: 1.5px;
+}
+
+ .node text {
+   font-size:8px;
+   font-family:FontAwesome;
+ }
+
+ .overlay{
+     background-color:#EEE;
+ }
+
+ .overlayWhite{
+     background-color:#fff;
+ }
+
+.panel-header{
+    width: 100%;
+    background-color: #767676;   
+}
+
+
+path {
+    stroke-width: 3;
+    fill: none;
+}
+
+.row{
+    margin-top: 10px !important;
+}
+
+#userStatus,
+#eventStatus,
+#taskStatus
+{
+    width: 270px;
+    height: 190px;
+}
+
+#stackLegend,
+#mlineLegend{
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+text {
+  pointer-events: none;
+}
