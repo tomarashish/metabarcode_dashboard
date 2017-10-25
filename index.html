@@ -13,6 +13,7 @@
   <script src="./assets/jquery.js"></script>
   <script src="./assets/bootstrap.min.js"></script>
   <script src="./assets/d3.v3.min.js"></script>
+  <script src="lib/utils/colorbrewer.min.js"></script>
   <script src="./lib/core/taxonBar.js"></script>
   <script src="./lib/core/donutChart.js"></script>
   <script src="./lib/core/taxonomyBar.js">
@@ -36,57 +37,66 @@
   <a id="return-to-top"><i class="icon-chevron-up"></i></a>
   <!-- header -->
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <!-- header -->
+  <header class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-        <a class="navbar-brand" href="index.html">General Visualization</a>
-      </div>
-
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a class="start-button" href="../example/start.html">Getting Started</a></li>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../example/treemap.html">Examples</a></li>
-          <li class="active"><a href="../example/dashboard.html">Dashboard</a></li>
-        </ul>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="index.html">Metagenomics</a>
       </div>
     </div>
-  </nav>
 
+    <!-- navbar -->
+    <nav class="nav navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="#"><i class="fa fa-question-circle"></i>Dashboard</a></li>
+      </ul>
+    </nav>
+    <!-- end of nav-->
+  </header>
+  <!-- end of header-->
+
+  <!-- footer -->
   <footer class="footer">
     <div class="container">
-      <p>Currently under development....</p>
-      <a href="https://github.com/biographika/sunburst-viz" target="_blank"><i class="icon-github icon-large"></i>&nbsp;&nbsp;Github</a>
+      <p>Developed By :
+        <span><a href="https://era7bioinformatics.com/en/index.cfm" target="_blank">Era7 Bioinformatics</a></span> &nbsp; And &nbsp;
+        <span><a href="http://big4-project.eu/" target="_blank">Big4 Project</a></span>
+        <span style="float:right"> Project Funded By: <b>European Union </b><!--img id="footer-logo" height="30" width="40" src="data/images/logoeu.gif"/--></span>
+      </p>
     </div>
   </footer>
-
+  <!-- end of footer-->
 
   <div class="container-fluid">
 
-    <!--div class="row">
-            <div class="col-md-12">
-             <div class="chart-wrapper"> 
-                <div class="chart-title">Overall Taxon-wise Abundance &nbsp;&nbsp; Overall Taxon-wise Abundance</div>
-            </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">Overall Taxon-wise Abundance</div>
+          <div id="pieTaxon" class="chart-area"></div>
+
         </div>
-        </div-->
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="chart-wrapper">
-          <!--div class="chart-title">Phylum</div-->
+          <div class="chart-title">Phylum</div>
           <div id="phylumDonut" class="chart-area"></div>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="chart-wrapper">
-          <!--div class="chart-title">Class</div-->
+          <div class="chart-title">Phylum</div>
           <div id="phylumStack" class="chart-area"></div>
         </div>
       </div>
@@ -95,12 +105,14 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="chart-wrapper">
+          <div class="chart-title">Class</div>
           <div id="classDonut" class="chart-area"></div>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="chart-wrapper">
+          <div class="chart-title">Class</div>
           <div id="classStack" class="chart-area"></div>
         </div>
       </div>
@@ -109,12 +121,14 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="chart-wrapper">
+          <div class="chart-title">Order</div>
           <div id="orderDonut" class="chart-area"></div>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="chart-wrapper">
+          <div class="chart-title">Order</div>
           <div id="orderStack" class="chart-area"></div>
         </div>
       </div>
@@ -123,12 +137,14 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="chart-wrapper">
+          <div class="chart-title">Genus</div>
           <div id="genusDonut" class="chart-area"></div>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="chart-wrapper">
+          <div class="chart-title">Genus</div>
           <div id="genusStack" class="chart-area"></div>
         </div>
       </div>
@@ -137,18 +153,20 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4">
         <div class="chart-wrapper">
+          <div class="chart-title">Species</div>
           <div id="speciesDonut" class="chart-area"></div>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="chart-wrapper">
+          <div class="chart-title">Species</div>
           <div id="speciesStack" class="chart-area"></div>
         </div>
       </div>
 
     </div>
-
+    <script src="lib/core/pieChart.js"></script>
   </div>
 
 </body>
