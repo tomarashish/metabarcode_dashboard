@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatibile" content="IE-edge, chrome=1/">
 
   <!-- Title -->
-  <title>DoPlanning Dashboard</title>
+  <title>Metabarcoding Dashboard</title>
 
   <!-- Loading dependencies -->
   <script src="./assets/jquery.js"></script>
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-  <a id="return-to-top"><i class="icon-chevron-up"></i></a>
+  <!--a id="return-to-top"><i class="icon-chevron-up"></i></a-->
   <!-- header -->
 
   <!-- header -->
@@ -47,15 +47,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="index.html">Metagenomics</a>
+        <a class="navbar-brand" href="index.html">Metabarcode Viewer</a>
       </div>
     </div>
 
     <!-- navbar -->
     <nav class="nav navbar-collapse" role="navigation">
       <ul class="nav navbar-nav navbar-right">
-
-        <li><a href="#"><i class="fa fa-question-circle"></i>Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-question-circle"></i>Home</a></li>
+        <li><a href="#"><i class="fa fa-question-circle"></i>App</a></li>
       </ul>
     </nav>
     <!-- end of nav-->
@@ -74,99 +74,37 @@
   </footer>
   <!-- end of footer-->
 
+  <!-- Container-->
   <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">Overall Taxon-wise Abundance</div>
-          <div id="pieTaxon" class="chart-area"></div>
+    <div class="row parallex-img1">
 
+      <div class="inner">
+
+        <div class="col-md-12 col-xs-12">
+          <header>
+            <h1>Metabarcode Data Visualization</h1>
+          </header>
+          <p>
+
+            <br>Comparative Data Visualization And
+            <br>Statistical Visualization
+            <br> Using D3.js
+          </p>
+        </div>
+        <div class="caption col-md-6 col-xs-6">
+          <a href="app.html">
+                <button class="btn btn-block btn-responsive btn-solid">Check Visualization</button></a>
+        </div>
+        <div class="caption col-md-6 col-xs-6">
+          <a href="statistics.html">
+                <button class="btn btn-block btn-responsive btn-solid">Check Statistics</button></a>
         </div>
       </div>
+      <!-- end inner -->
     </div>
+    <!--end of row-->
 
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Phylum</div>
-          <div id="phylumDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Phylum</div>
-          <div id="phylumStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Class</div>
-          <div id="classDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Class</div>
-          <div id="classStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order</div>
-          <div id="orderDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order</div>
-          <div id="orderStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus</div>
-          <div id="genusDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus</div>
-          <div id="genusStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species</div>
-          <div id="speciesDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species</div>
-          <div id="speciesStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <script src="lib/core/pieChart.js"></script>
   </div>
-
+  <!--end of container-->
 </body>

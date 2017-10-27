@@ -21,8 +21,9 @@ body {
   font-size: 14px;
   font-family: 'Muli', Arial, sans-serif;
   background-color: #f7f7f7;
-  background-color: #f9f7ed !important;
-  /*background: url(../image/black.jpg) ;*/
+  background-color: #f9f7ed!important;
+   /*background-color: #b3e0e1 !important; 
+ background: url(../image/black.jpg) ;*/
 }
 
 .container-fluid {
@@ -342,4 +343,94 @@ img:hover {
   background-color: #66615b !important;
   color: #fff !important;
   border-radius: 6px !important;
+}
+
+.parallex-img1 {
+ background-image: url(../../image/pietaxon.png);
+  height: 800px;
+  background-size: cover;
+}
+
+.inner {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  margin-left: 25%;
+  margin-right: 25%;
+  /*background: rgba(52, 27, 43, 0.5);*/
+  color: rgba(52, 27, 43, 0.8);
+  text-align: center;
+  display: inline-block;
+}
+
+.inner header h1 {
+  font-family: 'Muli', Arial, sans-serif;
+  font-weight: bolder !important;
+  color: darkturquoise;
+}
+
+.inner p {
+  font-size: 25px;
+  font-weight: bold !important;
+  font-family: 'Muli', Arial, sans-serif;
+}
+
+.arrow-down {
+  top: 80%;
+  margin-left: 50%;
+  padding: 15px;
+  font-size: 30px;
+  background-color: rgba(52, 27, 43, 0.7);
+  border-radius: 50%;
+  width: 70px;
+}
+
+.arrow-down a {
+  color: #fff !important;
+}
+
+.arrow-down a:hover {
+  color: darkturquoise !important;
+}
+
+.caption {
+  font-family: 'Muli', Arial, sans-serif;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.caption .btn-solid {
+  color: #fff;
+  background-color: rgba(52, 27, 53, .9);
+  padding: 15px 15px;
+  font-size: 18px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+.caption .btn-border {
+  margin: auto;
+  width: 50% !important;
+  border: solid 4px;
+  color: #000;
+  padding: 20px 30px 20px 30px;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+#loadFile {
+  display: block;
+}
+
+#showViz{
+  display: none;
+}
+
+#pasteUrl{
+  display: none;
+}
+
+#exampleData{
+  display: none;
 }
