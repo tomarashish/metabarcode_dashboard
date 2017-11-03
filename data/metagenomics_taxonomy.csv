@@ -3,7 +3,7 @@ TaxonomyID,TaxonomyName,TaxonomyRank,sample1,sample2,sample3,sample4,sample5,sam
 1051626,Hymenobacter ginsengisoli,species,1,0,1,0,1,0,1,0
 1259734,Compostimonas,genus,2,0,2,0,2,0,2,0
 85024,unclassified Mycobacteriaceae,no rank,1,0,1,0,1,0,1,0
-68892,Streptococcus infantis,species,5,0,5,0,5,0,5,0
+68892,Streptococcus infantis,species,5,0,5,0,5,0,5,00
 644552,Streptomyces sp. JMCNT25,species,2,0,2,0,2,0,2,0
 171951,environmental samples,no rank,1,0,1,0,1,0,1,0
 2034,Curtobacterium,genus,6,2,6,2,6,2,6,2

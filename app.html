@@ -101,122 +101,136 @@
               <br>
               <button id="submit_file" class="btn btn-block btn-raised btn-responsive btn-border">Submit</button>
             </div>
-          </div><!-- end of load file-->
-          
+          </div>
+          <!-- end of load file-->
+
           <div id="pasteUrl">
             <div class="caption">
-               <input type="text" id="treeData" class="btn btn-block btn-responsive btn-border" placeholder="Add a csv data url">
+              <input type="text" id="treeData" class="btn btn-block btn-responsive btn-border" placeholder="Add a csv data url">
               <br>
               <button class="btn btn-block btn-raised btn-responsive btn-border">Submit</button>
             </div>
-          </div><!-- end of load url-->
-          
+          </div>
+          <!-- end of load url-->
+
           <div id="exampleData">
             <div class="caption">
               <button class="btn btn-block btn-responsive btn-border" onClick="location.href='data/metagenomics_taxonomy.csv'">
                   Download Example <i class="fa fa-download" aria-hidden="true"></i> </button>
               <br>
-              <button id="submit_file" class="btn btn-block btn-raised btn-responsive btn-border"  onclick="loadExample()">Load Example Data</button>
+              <button id="submit_file" class="btn btn-block btn-raised btn-responsive btn-border" onclick="loadExample()">Load Example Data</button>
             </div>
-          </div><!-- end of load example-->
-          
+          </div>
+          <!-- end of load example-->
+
         </div>
       </div>
     </div>
-    
+
     <div id="showViz" class="row">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="chart-wrapper">
-          <div class="chart-title">Overall Taxon-wise Abundance</div>
-          <div id="pieTaxon" class="chart-area"></div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="chart-wrapper">
+            <div class="chart-title">Overall Taxon-wise Abundance
+            </div>
+            <div id="pieTaxon" class="chart-area"></div>
+          </div>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Phylum</div>
+            <div id="phylumDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Phylum &nbsp;&nbsp;
+              <button type="btn btn-raised" id="savephylumStack" class="btn btn-default btn-raised btn-responsive"><span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="phylumStack" class="chart-area"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Class </div>
+            <div id="classDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Class
+              <button type="btn btn-raised" id="saveclassStack" class="btn btn-default btn-raised btn-responsive"><span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="classStack" class="chart-area"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Order</div>
+            <div id="orderDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Order
+              <button type="btn btn-raised" id="saveorderStack" class="btn btn-default btn-raised btn-responsive"><span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="orderStack" class="chart-area"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Genus</div>
+            <div id="genusDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Genus
+              <button type="btn btn-raised" id="savegenusStack" class="btn btn-default btn-raised btn-responsive"><span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="genusStack" class="chart-area"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Species</div>
+            <div id="speciesDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Species
+              <button type="btn btn-raised" id="savespeciesStack" class="btn btn-default btn-raised btn-responsive"><span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="speciesStack" class="chart-area"></div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Phylum</div>
-          <div id="phylumDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Phylum</div>
-          <div id="phylumStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Class</div>
-          <div id="classDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Class</div>
-          <div id="classStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order</div>
-          <div id="orderDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order</div>
-          <div id="orderStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus</div>
-          <div id="genusDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus</div>
-          <div id="genusStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species</div>
-          <div id="speciesDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species</div>
-          <div id="speciesStack" class="chart-area"></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-     <script src="./lib/core/init_taxonBar.js"></script>
+    <script src="./lib/core/init_taxonBar.js"></script>
     <script src="lib/core/pieChart.js"></script>
   </div>
-  
+
 </body>
