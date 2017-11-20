@@ -52,7 +52,7 @@ d3.select("#submit_file").on("click", function () {
 
 function loadExample() {
 
-  d3.csv("data/metagenomics_taxonomy.csv", function (error, data) {
+  d3.csv("data/example_daniel.csv", function (error, data) {
     try_example = true;
     createVisualization(data)
   });
@@ -61,7 +61,7 @@ function loadExample() {
 
 function createVisualization(taxon_data) {
 
-
+  console.log(taxon_data)
   var taxoData;
   if (try_example == true) {
     taxoData = taxon_data;
@@ -77,21 +77,26 @@ function createVisualization(taxon_data) {
     });
   }
 
-  if (upload_url == true) {
+  //if (upload_url == true) {
 
-  }
+  //}
 
   d3.select("#loadData").style("visibility", "hidden").style("display", "none");
   d3.select("#showViz").style("display", "block");
 
 
-  var phylumData = dataByGroup(taxoData, "TaxonomyRank", "phylum");
-  var classData = dataByGroup(taxoData, "TaxonomyRank", "class");
-  var orderData = dataByGroup(taxoData, "TaxonomyRank", "order");
-  var genusData = dataByGroup(taxoData, "TaxonomyRank", "genus");
-  var speciesData = dataByGroup(taxoData, "TaxonomyRank", "species");
+  //var phylumData = dataByGroup(taxoData, "TaxonomyRank", "phylum");
+  //var classData = dataByGroup(taxoData, "TaxonomyRank", "class");
+  var orderData = groupByTaxon(taxoData, "Order");
+  var familyData = groupByTaxon(taxoData, "Family");
+  var genusData = groupByTaxon(taxoData, "Genus");
+  var speciesData = groupByTaxon(taxoData, "Species");
 
-  var taxonomyBar = taxonomyBarChart();
+  //console.log(phylumData)
+  console.log(orderData)
+  //console.log(familyData)
+
+  /* var taxonomyBar = taxonomyBarChart();
   var chartContainer = d3.select("#phylumStack")
     .datum(phylumData)
     .call(taxonomyBar);
@@ -100,9 +105,14 @@ function createVisualization(taxon_data) {
   var chartContainer = d3.select("#classStack")
     .datum(classData)
     .call(taxocBar);
-
+*/
   var taxoBar = taxonomyBarChart();
   var chartContainer = d3.select("#orderStack")
+    .datum(orderData)
+    .call(taxoBar);
+
+  var taxoBar = taxonomyBarChart();
+  var chartContainer = d3.select("#familyStack")
     .datum(orderData)
     .call(taxoBar);
 
@@ -116,7 +126,7 @@ function createVisualization(taxon_data) {
     .datum(speciesData)
     .call(taxsBar);
 
-  var taxpDonut = donutChart();
+  /* var taxpDonut = donutChart();
   var donutContainer = d3.select("#phylumDonut")
     .datum(phylumData)
     .call(taxpDonut);
@@ -125,7 +135,7 @@ function createVisualization(taxon_data) {
   var donutContainer = d3.select("#classDonut")
     .datum(classData)
     .call(taxcDonut);
-
+*/
   var taxoDonut = donutChart();
   var donutContainer = d3.select("#orderDonut")
     .datum(orderData)
@@ -171,12 +181,43 @@ function dataByGroup(data, keyName, name) {
   return nestedData[name];
 }
 
-function groupByEntries(data, keyName) {
+function groupByTaxon(data, keyName) {
 
   var groupData = d3.nest()
     .key(function (d) {
       return d[keyName];
     })
-    .entries(data);
-  return groupData[keyName];
+    .rollup(function (d) {
+      //console.log(d)
+      return {
+        TaxonomyRank: keyName,
+        TaxonomyName: d[0][keyName],
+        Sa04_184_BF11_BR22: Math.round(d3.sum(d, function (e) {
+          return +e.Sa04_184_BF11_BR22
+        })),
+        Sa05_155_BR13_BF21: Math.round(d3.sum(d, function (e) {
+          return +e.Sa05_155_BR13_BF21
+        })),
+        Sa04_214_BR24_BF13: Math.round(d3.sum(d, function (e) {
+          return +e.Sa04_214_BR24_BF13
+        })),
+
+        Sa04_184_BF11_BR20: Math.round(d3.sum(d, function (e) {
+          return +e.Sa04_184_BF11_BR20
+        })),
+        Sa05_5_BF11_BR11: Math.round(d3.sum(d, function (e) {
+          return +e.Sa05_5_BF11_BR11
+        })),
+        Sa05_65_BF2B_BR2B: Math.round(d3.sum(d, function (e) {
+          return +e.Sa05_65_BF2B_BR2B
+        }))
+      }
+    })
+    .map(data);
+
+  var nestedData = d3.entries(groupData).map(function (d) {
+    return d.value;
+  })
+
+  return nestedData;
 }

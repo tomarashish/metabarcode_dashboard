@@ -22,7 +22,7 @@ body {
   font-family: 'Muli', Arial, sans-serif;
   background-color: #f7f7f7;
   background-color: #f9f7ed!important;
-   /*background-color: #b3e0e1 !important; 
+  /*background-color: #b3e0e1 !important; 
  background: url(../image/black.jpg) ;*/
 }
 
@@ -63,6 +63,15 @@ body {
   outline: none
 }
 
+.icon-btn {
+  margin-top: -5px !important;
+  font-family: 'Muli', Arial, sans-serif !important;
+  font-size: 18px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  background: #ffffff;
+}
+
 .chart-wrapper {
   font-family: 'Muli', Arial, sans-serif;
   background: #fff;
@@ -85,7 +94,7 @@ body {
 }
 
 .chart-wrapper .chart-area {
-font-family: 'Muli', Arial, sans-serif;
+  font-family: 'Muli', Arial, sans-serif;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -268,7 +277,7 @@ img:hover {
 .navbar {
   min-height: 50px;
   border-bottom: 0px solid #d9d9d9;
-  background-color: #333; 
+  background-color: #333;
   /*background-color: #f9f7ed;
    background-color: #777;
   background-color: #f4f3ef;
@@ -310,7 +319,7 @@ img:hover {
   right: 30px;
   font-family: 'Muli', Arial, sans-serif;
   font-size: 18px;
-  text-shadow: 1px 1px 1px rgba(60,60,60,0.7);
+  text-shadow: 1px 1px 1px rgba(60, 60, 60, 0.7);
   line-height: 1.42857;
   letter-spacing: 1.1px;
   margin: 10px 20px;
@@ -346,7 +355,7 @@ img:hover {
 }
 
 .parallex-img1 {
- background-image: url(../../image/pietaxon.png);
+  background-image: url(../../image/pietaxon.png);
   height: 800px;
   background-size: cover;
 }
@@ -419,18 +428,22 @@ img:hover {
   letter-spacing: 2px;
 }
 
+#loadData {
+  display: none;
+}
+
 #loadFile {
   display: block;
 }
 
-#showViz{
+#showViz {
+  display: block;
+}
+
+#pasteUrl {
   display: none;
 }
 
-#pasteUrl{
-  display: none;
-}
-
-#exampleData{
+#exampleData {
   display: none;
 }
