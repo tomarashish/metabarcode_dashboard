@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+
+  <meta charset="utf-8">
+  <!-- http://t.co/dKP3o1e -->
+  <meta http-equiv="X-UA-Compatibile" content="IE-edge, chrome=1/">
+
+  <!-- Title -->
+  <title>Metabarcoding Dashboard</title>
+
+  <!-- Loading dependencies -->
+  <script src="./assets/jquery.js"></script>
+  <script src="./assets/bootstrap.min.js"></script>
+  <script src="./assets/d3.v3.min.js"></script>
+  <script src="lib/utils/colorbrewer.min.js"></script>
+  <script src="./lib/core/treeViewD3.js"></script>
+  <script src="./lib/core/sunburstD3.js"></script>
+
+  <!-- Loading stylesheet -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!--a id="return-to-top"><i class="icon-chevron-up"></i></a-->
+  <!-- header -->
+
+  <!-- header -->
+  <header class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="index.html">Metabarcode Viewer</a>
+      </div>
+    </div>
+
+    <!-- navbar -->
+    <nav class="nav navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="fa fa-question-circle"></i>Home</a></li>
+        <li><a href="#"><i class="fa fa-question-circle"></i>App</a></li>
+      </ul>
+    </nav>
+    <!-- end of nav-->
+  </header>
+  <!-- end of header-->
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Developed By :
+        <span><a href="https://era7bioinformatics.com/en/index.cfm" target="_blank">Era7 Bioinformatics</a></span> &nbsp; And &nbsp;
+        <span><a href="http://big4-project.eu/" target="_blank">Big4 Project</a></span>
+        <span style="float:right"> Project Funded By: <b>European Union </b><!--img id="footer-logo" height="30" width="40" src="data/images/logoeu.gif"/--></span>
+      </p>
+    </div>
+  </footer>
+  <!-- end of footer-->
+  <!-- Showing visualization -->
+  <div class="container-fluid">
+    <div class="row row-no-padding" id="showTree">
+      <div class="col-md-12">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <button type="btn btn-raised" class="btn btn-default btn-raised btn-responsive"><b>Tree View</b></button>
+            <!--input id="the-basics" class="typeahead" type="text" placeholder="Node Name"-->
+            <button id="saveTree" type="btn btn-raised" class="btn btn-default btn-raised btn-responsive"><b>Save <span class="icon-download icon-medium"></span></b></button>
+          </div>
+          <div id="treeView" class="chart-area"> </div>
+        </div>
+      </div>
+      <script src="./assets/sampleview.js"></script>
+
+    </div>
+  </div>
+  <!-- end of container fluid-->
+
+</body>
