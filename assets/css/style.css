@@ -429,7 +429,7 @@ img:hover {
 }
 
 #loadData {
-  display: none;
+  display: block;
 }
 
 #loadFile {
@@ -437,7 +437,7 @@ img:hover {
 }
 
 #showViz {
-  display: block;
+  display: none;
 }
 
 #pasteUrl {

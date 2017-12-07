@@ -61,7 +61,7 @@ function loadExample() {
 
 function createVisualization(taxon_data) {
 
-  console.log(taxon_data)
+  // console.log(taxon_data)
   var taxoData;
   if (try_example == true) {
     taxoData = taxon_data;
@@ -93,7 +93,7 @@ function createVisualization(taxon_data) {
   var speciesData = groupByTaxon(taxoData, "Species");
 
   //console.log(phylumData)
-  console.log(orderData)
+  //console.log(orderData)
   //console.log(familyData)
 
   /* var taxonomyBar = taxonomyBarChart();
@@ -106,6 +106,8 @@ function createVisualization(taxon_data) {
     .datum(classData)
     .call(taxocBar);
 */
+
+
   var taxoBar = taxonomyBarChart();
   var chartContainer = d3.select("#orderStack")
     .datum(orderData)
@@ -113,7 +115,7 @@ function createVisualization(taxon_data) {
 
   var taxoBar = taxonomyBarChart();
   var chartContainer = d3.select("#familyStack")
-    .datum(orderData)
+    .datum(familyData)
     .call(taxoBar);
 
   var taxgBar = taxonomyBarChart();
@@ -139,6 +141,11 @@ function createVisualization(taxon_data) {
   var taxoDonut = donutChart();
   var donutContainer = d3.select("#orderDonut")
     .datum(orderData)
+    .call(taxoDonut);
+
+  var taxoDonut = donutChart();
+  var donutContainer = d3.select("#familyDonut")
+    .datum(familyData)
     .call(taxoDonut);
 
   var taxgDonut = donutChart();
@@ -181,8 +188,30 @@ function dataByGroup(data, keyName, name) {
   return nestedData[name];
 }
 
+function groupAsTree(data) {
+
+  var treeData = d3.nest()
+    .key(function (d) {
+      return d.Order;
+    })
+    .key(function (d) {
+      return d.Family;
+    })
+    .key(function (d) {
+      return d.Genus;
+    })
+    .key(function (d) {
+      return d.Species;
+    })
+    .entries(data);
+
+  return treeData;
+}
+
 function groupByTaxon(data, keyName) {
 
+  // var rootExp = tree(stratify(data));
+  //  console.log(rootExp)
   var groupData = d3.nest()
     .key(function (d) {
       return d[keyName];
@@ -192,23 +221,22 @@ function groupByTaxon(data, keyName) {
       return {
         TaxonomyRank: keyName,
         TaxonomyName: d[0][keyName],
-        Sa04_184_BF11_BR22: Math.round(d3.sum(d, function (e) {
+        BF11_BR22: Math.round(d3.sum(d, function (e) {
           return +e.Sa04_184_BF11_BR22
         })),
-        Sa05_155_BR13_BF21: Math.round(d3.sum(d, function (e) {
+        BR13_BF21: Math.round(d3.sum(d, function (e) {
           return +e.Sa05_155_BR13_BF21
         })),
-        Sa04_214_BR24_BF13: Math.round(d3.sum(d, function (e) {
+        BR24_BF13: Math.round(d3.sum(d, function (e) {
           return +e.Sa04_214_BR24_BF13
         })),
-
-        Sa04_184_BF11_BR20: Math.round(d3.sum(d, function (e) {
+        BF11_BR20: Math.round(d3.sum(d, function (e) {
           return +e.Sa04_184_BF11_BR20
         })),
-        Sa05_5_BF11_BR11: Math.round(d3.sum(d, function (e) {
+        BF11_BR11: Math.round(d3.sum(d, function (e) {
           return +e.Sa05_5_BF11_BR11
         })),
-        Sa05_65_BF2B_BR2B: Math.round(d3.sum(d, function (e) {
+        BF2B_BR2B: Math.round(d3.sum(d, function (e) {
           return +e.Sa05_65_BF2B_BR2B
         }))
       }
