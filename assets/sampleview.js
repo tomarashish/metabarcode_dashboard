@@ -1,38 +1,85 @@
 //csv to tree data using d3 functions
 //https://stackoverflow.com/questions/17416186/d3-nest-key-and-values-conversion-to-name-and-children?rq=1
+var chartObj = [];
 
+function getTaxonLevels(csv_data) {
+  var keys = [];
+  //if (csv_data[0]["Family"])
 
-function groupAsTree(data) {
+  if ("Kingdom" in csv_data[0])
+    keys.push("Kingdom")
 
-  var treeData = {
-    "key": "Root",
-    "values": d3.nest()
-      .key(function (d) {
-        return d.Order;
+  if ("Phylum" in csv_data[0])
+    keys.push("Phylum")
+
+  if ("Class" in csv_data[0])
+    keys.push("Class")
+
+  if ("Family" in csv_data[0])
+    keys.push("Family")
+
+  if ("Order" in csv_data[0])
+    keys.push("Order")
+
+  if ("Genus" in csv_data[0])
+    keys.push("Genus")
+
+  if ("Species" in csv_data[0])
+    keys.push("Species ")
+
+  return keys;
+}
+
+function groupAsTree(data, taxonLevels) {
+
+  var nest = d3.nest();
+  var treeData;
+
+  taxonLevels.forEach(function (k) {
+    treeData = nest.key(function (d) {
+        return d[k];
       })
-      .key(function (d) {
-        return d.Family;
+      .rollup(function (d) {
+        // console.log(d)
+        return {
+          sum: Math.round(d3.sum(d, function (e) {
+            return +e.Sa04_184_BF11_BR22;
+          }))
+        }
       })
-      .key(function (d) {
-        return d.Genus;
-      })
-      .key(function (d) {
-        return d.Species;
-      })
-      .entries(data)
-  };
-  return treeData;
+  });
+
+  var root = {
+    "key": "root",
+    "values": treeData.entries(data) //compute the nest
+  }
+
+  return root;
 }
 
 d3.csv("data/example_daniel.csv", function (error, taxoData) {
-  //console.log(JSON.stringify(groupAsTree(taxoData)));
-  console.log(groupAsTree(taxoData));
 
-  var treeview = treeView();
-  //var treeview = sunburstD3();
+  //console.log(JSON.stringify(groupAsTree(taxoData)));
+  //console.log(groupAsTree(taxoData));
+
+  var taxonKeys = getTaxonLevels(taxoData);
+  //var treeview = treeView();
+  var treeview = sunburstD3();
 
   var chartContainer = d3.select("#treeView")
-    .datum(groupAsTree(taxoData))
+    .datum(groupAsTree(taxoData, taxonKeys))
     .call(treeview);
 
 });
+
+/*var root = {
+  "key": "root",
+  "values": d3.nest()
+  for (var i = 0; i < taxonLevels.length; i++) {
+    .key(function (d) {
+      return d[taxonLevels[i]]
+    })
+  }
+  .entries(data)
+}
+*/
