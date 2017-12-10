@@ -15,17 +15,17 @@ function getTaxonLevels(csv_data) {
   if ("Class" in csv_data[0])
     keys.push("Class")
 
-  if ("Family" in csv_data[0])
-    keys.push("Family")
-
   if ("Order" in csv_data[0])
     keys.push("Order")
+
+  if ("Family" in csv_data[0])
+    keys.push("Family")
 
   if ("Genus" in csv_data[0])
     keys.push("Genus")
 
   if ("Species" in csv_data[0])
-    keys.push("Species ")
+    keys.push("Species")
 
   return keys;
 }
