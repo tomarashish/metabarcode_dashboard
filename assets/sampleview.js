@@ -37,26 +37,25 @@ function groupAsTree(data, taxonLevels) {
 
   taxonLevels.forEach(function (k) {
     treeData = nest.key(function (d) {
-        return d[k];
-      })
-      .rollup(function (d) {
-        // console.log(d)
-        return {
-          sum: Math.round(d3.sum(d, function (e) {
-            return +e.Sa04_184_BF11_BR22;
-          }))
-        }
-      })
+      return d[k];
+    })
+    /*
+          .rollup(function (d) {
+            return d3.sum(d, function (d) {
+              return +d.Sa05_155_BR13_BF21;
+            });
+          });*/
   });
+
 
   var root = {
     "key": "root",
     "values": treeData.entries(data) //compute the nest
   }
 
+  console.log(root);
   return root;
 }
-
 d3.csv("data/example_daniel.csv", function (error, taxoData) {
 
   //console.log(JSON.stringify(groupAsTree(taxoData)));

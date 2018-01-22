@@ -107,7 +107,7 @@
 
           <div id="pasteUrl">
             <div class="caption">
-              <input type="text" id="treeData" class="btn btn-block btn-responsive btn-border" placeholder="Add a csv data url">
+              <input type="text" id="treeData" class="btn btn-block btn-raised btn-responsive btn-border" placeholder="Add a csv data url">
               <br>
               <button class="btn btn-block btn-raised btn-responsive btn-border">Submit</button>
             </div>
@@ -116,7 +116,7 @@
 
           <div id="exampleData">
             <div class="caption">
-              <button class="btn btn-block btn-responsive btn-border" onClick="location.href='data/metagenomics_taxonomy.csv'">
+              <button class="btn btn-block btn-raised btn-responsive btn-border" onClick="location.href='data/metagenomics_taxonomy.csv'">
                   Download Example <i class="fa fa-download" aria-hidden="true"></i> </button>
               <br>
               <button id="submit_file" class="btn btn-block btn-raised btn-responsive btn-border" onclick="loadExample()">Load Example Data</button>
@@ -175,78 +175,78 @@
           </div>
         </div-->
 
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order</div>
-          <div id="orderDonut" class="chart-area"></div>
-        </div>
-      </div>
 
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Order
-            <button type="btn btn-raised" id="saveorderStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b>  <span class="icon-download icon-large"></span></button>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Order</div>
+            <div id="orderDonut" class="chart-area"></div>
           </div>
-          <div id="orderStack" class="chart-area"></div>
         </div>
-      </div>
 
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Family</div>
-          <div id="familyDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Family
-            <button type="btn btn-raised" id="saveorderStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b>  <span class="icon-download icon-large"></span></button>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Order
+              <button type="btn btn-raised" id="saveorderStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b>  <span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="orderStack" class="chart-area"></div>
           </div>
-          <div id="familyStack" class="chart-area"></div>
         </div>
-      </div>
 
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus</div>
-          <div id="genusDonut" class="chart-area"></div>
-        </div>
       </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Genus
-            <button type="btn btn-raised" id="savegenusStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b> <span class="icon-download icon-large"></span></button>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Family</div>
+            <div id="familyDonut" class="chart-area"></div>
           </div>
-          <div id="genusStack" class="chart-area"></div>
         </div>
-      </div>
 
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species</div>
-          <div id="speciesDonut" class="chart-area"></div>
-        </div>
-      </div>
-
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">Species
-            <button type="btn icon-btn" id="savespeciesStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b> <span class="icon-download icon-large"></span></button>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Family
+              <button type="btn btn-raised" id="saveorderStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b>  <span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="familyStack" class="chart-area"></div>
           </div>
-          <div id="speciesStack" class="chart-area"></div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Genus</div>
+            <div id="genusDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Genus
+              <button type="btn btn-raised" id="savegenusStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b> <span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="genusStack" class="chart-area"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="chart-wrapper">
+            <div class="chart-title">Species</div>
+            <div id="speciesDonut" class="chart-area"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="chart-wrapper">
+            <div class="chart-title">Species
+              <button type="btn icon-btn" id="savespeciesStack" class="btn icon-btn btn-raised btn-responsive pull-right"><b>save</b> <span class="icon-download icon-large"></span></button>
+            </div>
+            <div id="speciesStack" class="chart-area"></div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
   <!--script src="./lib/core/init_taxonBar.js"></script-->
