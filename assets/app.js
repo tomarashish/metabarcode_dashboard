@@ -1,5 +1,5 @@
 // stacked bar chart http://bl.ocks.org/datapixie/5986521
-
+var sampleNames;
 //Input file name display
 $("input[id='upload_file']").change(function (e) {
   var $this = $(this);
@@ -84,6 +84,13 @@ function createVisualization(taxon_data) {
   d3.select("#loadData").style("visibility", "hidden").style("display", "none");
   d3.select("#showViz").style("display", "block");
 
+  sampleNames = d3.keys(taxoData[0]).filter(function (key) {
+
+    if (key != "Order" && key != "Family" && key !== "Genus" && key !== "Species")
+      return key
+  });
+
+  console.log(sampleNames)
 
   //var phylumData = dataByGroup(taxoData, "TaxonomyRank", "phylum");
   //var classData = dataByGroup(taxoData, "TaxonomyRank", "class");
@@ -208,17 +215,8 @@ function groupAsTree(data) {
   return treeData;
 }
 
-function groupByTaxon(data, keyName) {
-
-  // var rootExp = tree(stratify(data));
-  //  console.log(rootExp)
-  var groupData = d3.nest()
-    .key(function (d) {
-      return d[keyName];
-    })
-    .rollup(function (d) {
-      //console.log(d)
-      return {
+/*
+  return {
         TaxonomyRank: keyName,
         TaxonomyName: d[0][keyName],
         BF11_BR22: Math.round(d3.sum(d, function (e) {
@@ -240,9 +238,32 @@ function groupByTaxon(data, keyName) {
           return +e.Sa05_65_BF2B_BR2B
         }))
       }
+      */
+
+function groupByTaxon(data, keyName) {
+
+  // var rootExp = tree(stratify(data));
+  // console.log(data)
+  var groupData = d3.nest()
+    .key(function (d) {
+      return d[keyName];
+    })
+    .rollup(function (d, i) {
+      //console.log(d)
+      var res = {};
+                res["TaxonomyRank"] = keyName;
+                res["TaxonomyName"] = d[0][keyName];
+      sampleNames.forEach(function(sample){
+                    res[sample] = Math.round(d3.sum(d, function (e) {
+                      return +e[sample];
+                      }));
+                  })
+        
+      return res;
     })
     .map(data);
 
+  console.log(groupData);
   var nestedData = d3.entries(groupData).map(function (d) {
     return d.value;
   })
